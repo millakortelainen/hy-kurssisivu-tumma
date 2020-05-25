@@ -1,9 +1,13 @@
-<nav class="side-nav">
+<nav class="side-nav" id="side-nav">
+    <button id="hide" onclick="hideSideNav()"> &#x2715;</button>
+    <button id="show" onclick="showSideNav()"> &#9776;</button>
+    <h2>{{ site.title}},<br>talvi 2222</h2>
     <ol>
         <li class="side-nav-obj"><a href={{ 'index'  | relative_url }}>Etusivu</a></li>
         {% for page in site.pages %}
-        <li class="side-nav-obj"><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+        <li class="side-nav-obj"><a href="{{ page.url | relative_url  }}">{{ page.title }}</a></li>
         {% endfor %}
+        <img src="{{ /assets/img/divider.png | relative_ur }}">
         <li class="side-nav-obj">* * *</li>
         {% for page in site.content %}
         {% if page.nav-title%}
@@ -15,10 +19,6 @@
             <li class="side-nav-sub-obj"><a href="{{ page.url | relative_url }}#{{ s.link-url }}">{{ s.sub-section-title }}</a></li>
         
             {% endfor %}
-        {% endif %}
-
-        {% if page.sub-section %}
-        <li class="side-nav-sub-obj"><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
         {% endif %}
         
         {% endfor %}
